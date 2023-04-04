@@ -1,14 +1,20 @@
 import sqlite3
+from . import api
 
-conn = sqlite3.connect('./db/data.db')
 
-conn.execute('''CREATE TABLE IF NOT EXISTS users
-             (id INTEGER PRIMARY KEY AUTOINCREMENT,
-             name TEXT NOT NULL,
-             email TEXT NOT NULL,
-             username TEXT NOT NULL,
-             password TEXT NOT NULL,
-             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);''')
+# Check if database exists
+# If not, create it
+def createDB():
+    try:
+        conn = sqlite3.connect('./db/database.db')
+        print("Database created successfully")
+        api.createTable()
+    except sqlite3.Error as e:
+        print(e)
+    finally:
+        if conn:
+            conn.close()
 
-conn.close()
+
+createDB()
+api.createTable()
