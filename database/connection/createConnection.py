@@ -1,9 +1,24 @@
 import sqlite3
-
-# Create a function that will connect to the database and return the connection object
+import os
 
 
 def createConnection():
-    conn = sqlite3.connect('./db/database.db')
-    print("Connection created successfully")
-    return conn
+
+    # Get database name from environment variable
+    # database_name = os.getenv('DATABASE_NAME')
+    # print(database_name)
+
+    # Or get database name from user input
+    database_name = input(
+        '*** DATABASE CONNECTION ***\n' + 'Enter database name: ')
+    print("Connecting to database: {database_name}".format(
+        database_name=database_name))
+
+    if database_name:
+        # Create a connection object
+        conn = sqlite3.connect('./db/{database_name}.db'.format(
+            database_name=database_name))
+        print('Database connected successfully.' + '\n')
+        return conn
+    else:
+        print('No database name provided, unable to connect.' + '\n')
