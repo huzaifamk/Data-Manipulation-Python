@@ -1,8 +1,4 @@
-import sqlite3
-
-
-def createTable():
-    conn = sqlite3.connect('./db/database.db')
+def createTable(conn):
     # Create a table
     conn.execute('''CREATE TABLE IF NOT EXISTS users
                     (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,5 +8,8 @@ def createTable():
                     password TEXT NOT NULL,
                     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);''')
+
+    print('Table created successfully.')
+
     # Close connection
     conn.close()
