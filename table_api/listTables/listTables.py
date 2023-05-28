@@ -8,6 +8,7 @@ def listTables(conn):
     tables = cursor.fetchall()
     # Print all rows in the result set
     for table in tables:
-        print(table)
+        if table[0] != 'sqlite_sequence':
+            print("Following table exists in the database: {table_name}".format(table_name=table[0]))
     # Close cursor
     cursor.close()

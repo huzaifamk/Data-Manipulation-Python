@@ -6,9 +6,10 @@ def createTable(conn):
 
     # Or get table name from user input
     table_name = input('*** CREATE TABLE ***\n' + 'Enter table name (Leave blank to skip): ')
-    print("Creating table: {table_name}".format(table_name=table_name))
 
     if table_name:
+        print("Creating table: {table_name}".format(table_name=table_name))
+
         # Create a table
         conn.execute('''CREATE TABLE IF NOT EXISTS {table_name}
                         (id INTEGER PRIMARY KEY AUTOINCREMENT,
