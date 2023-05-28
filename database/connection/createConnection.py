@@ -21,4 +21,5 @@ def createConnection():
         print('Database connected successfully.' + '\n')
         return conn
     else:
-        print('No database name provided, unable to connect.' + '\n')
+        print('Database name is necessary to connect to database. You can enter database name even if it does not exist yet, and it will be created for you.' + '\n')
+        createConnection()
