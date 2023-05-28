@@ -1,5 +1,5 @@
 import sqlite3
-from . import api
+from api.createTable import createTable as api
 
 
 # Check if database exists
