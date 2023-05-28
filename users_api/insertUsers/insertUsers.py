@@ -2,7 +2,12 @@ def insertUsers(conn):
 
     # Get user input
     table_name = input('*** INSERT USERS ***\n' +
-                       'Enter table name to insert users: ')
+                       'Enter table name to insert users(Leave blank to skip): ')
+
+    if not table_name:
+        print('No table name provided, no users inserted.' + '\n')
+        exit()
+
     name = input('Enter name: ')
     email = input('Enter email: ')
     username = input('Enter username: ')
