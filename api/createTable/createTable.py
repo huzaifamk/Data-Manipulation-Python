@@ -10,6 +10,3 @@ def createTable(conn):
                     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);''')
 
     print('Table created successfully.')
-
-    # Close connection
-    conn.close()
