@@ -5,8 +5,7 @@ def createTable(conn):
     # table_name = os.getenv('TABLE_NAME')
 
     # Or get table name from user input
-    table_name = input('*** CREATE TABLE ***\n' +
-                       'Enter table name (Leave blank to skip): ')
+    table_name = input('*** CREATE TABLE ***\n' + 'Enter table name (Leave blank to skip): ')
     print("Creating table: {table_name}".format(table_name=table_name))
 
     if table_name:
@@ -21,14 +20,13 @@ def createTable(conn):
                         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);'''.format(
             table_name=table_name))
         print('Table created successfully.' + '\n')
+        # Ask user if they want to create another table
+        create_another = input('Create another table? (y/n): ')
+
+        if create_another == 'y' or create_another == 'Y':
+            createTable(conn)
+
+        elif create_another == 'n' or create_another == 'N':
+            print('OK, moving forward.' + '\n')
     else:
         print('No table name provided, no table created.' + '\n')
-
-    # Ask user if they want to create another table
-    create_another = input('Create another table? (y/n): ')
-
-    if create_another == 'y' or create_another == 'Y':
-        createTable(conn)
-
-    elif create_another == 'n' or create_another == 'N':
-        print('OK, moving forward.' + '\n')

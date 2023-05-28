@@ -9,8 +9,7 @@ def createConnection():
     # print(database_name)
 
     # Or get database name from user input
-    database_name = input(
-        '*** DATABASE CONNECTION ***\n' + 'Enter database name: ')
+    database_name = input('*** DATABASE CONNECTION ***\n' + 'Enter database name: ')
     print("Connecting to database: {database_name}".format(
         database_name=database_name))
 
